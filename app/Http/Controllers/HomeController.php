@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Doctor;
+
 
 use Illuminate\Http\Request;
 
@@ -25,6 +27,7 @@ class HomeController extends Controller
     }
 
     public function index(){
-        return view('user.home');
+        $doctors = Doctor::all();
+        return view('user.home', compact('doctors', $doctors));
     }
 }

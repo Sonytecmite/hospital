@@ -19,7 +19,9 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'redirect']);
 
-Route::get('/add-doctor', [AdminController::class, 'add_doctor'])->name('add_doctor');
+Route::get('/add-doctor', [AdminController::class, 'create'])->name('add_doctor');
+
+Route::post('/add-doctor', [AdminController::class, 'store']);
 
 Route::middleware([
     'auth:sanctum',
